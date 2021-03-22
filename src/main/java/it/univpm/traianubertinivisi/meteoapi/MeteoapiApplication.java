@@ -17,6 +17,9 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+/**
+ * 
+ */
 @SpringBootApplication
 @ComponentScan({ "it.univpm.traianubertinivisi" })
 @EntityScan("it.univpm.traianubertinivisi")
@@ -24,10 +27,18 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @EnableAsync
 public class MeteoapiApplication {
 
+	
+	/** 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(MeteoapiApplication.class, args);
 	}
 
+	
+	/** 
+	 * @return Executor
+	 */
 	@Bean
 	public Executor taskExecutor() {
 		// Mantiene traccia dei thread aperti con le richieste ad openweather
@@ -41,6 +52,11 @@ public class MeteoapiApplication {
 		return executor;
 	}
 
+	
+	/** 
+	 * @param dataSource
+	 * @return DataSourceInitializer
+	 */
 	@Bean
 	public DataSourceInitializer dataSourceInitializer(@Qualifier("dataSource") final DataSource dataSource) {
 		// Crea le tabelle se non esistono.
