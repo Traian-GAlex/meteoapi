@@ -30,7 +30,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/forecast?country=hu&city=B*",
+							"raw": "http://localhost:8083/forecast?country=it,ro&city=Anco*,Timisoara",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -42,11 +42,11 @@
 							"query": [
 								{
 									"key": "country",
-									"value": "hu"
+									"value": "it,ro"
 								},
 								{
 									"key": "city",
-									"value": "B*"
+									"value": "Anco*,Timisoara"
 								}
 							]
 						}
@@ -65,7 +65,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8083/forecast/statistics?start=2021-03-01 00:00:00&end=2021-03-18 23:59:59&country=it&city=Rome,Ancona",
+							"raw": "http://localhost:8083/forecast/statistics?start=2020-03-21 00:00:00&end=2020-05-21 23:59:59&country=it&city=Rome",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -78,11 +78,11 @@
 							"query": [
 								{
 									"key": "start",
-									"value": "2021-03-01 00:00:00"
+									"value": "2020-03-21 00:00:00"
 								},
 								{
 									"key": "end",
-									"value": "2021-03-18 23:59:59"
+									"value": "2020-05-21 23:59:59"
 								},
 								{
 									"key": "country",
@@ -90,7 +90,7 @@
 								},
 								{
 									"key": "city",
-									"value": "Rome,Ancona"
+									"value": "Rome"
 								}
 							]
 						}
@@ -103,7 +103,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/forecast/lookup/secret/?sleep=1&type=minutes&country=it&city=Ancona,Bologna,Torino,Jesi,Macerata,San *,Morovalle,Civi*",
+							"raw": "http://localhost:8083/forecast/lookup/{{secret}}/?sleep=1&type=seconds&country=it&city=Rome",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -112,70 +112,7 @@
 							"path": [
 								"forecast",
 								"lookup",
-								"secret",
-								""
-							],
-							"query": [
-								{
-									"key": "sleep",
-									"value": "1"
-								},
-								{
-									"key": "type",
-									"value": "minutes",
-									"description": "// possible values for type: milliseconds, seconds, minutes, hours, days"
-								},
-								{
-									"key": "country",
-									"value": "it"
-								},
-								{
-									"key": "city",
-									"value": "Ancona,Bologna,Torino,Jesi,Macerata,San *,Morovalle,Civi*"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8083/forecast/lookup/secret/stop",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8083/forecast/lookup/secret/stop",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8083",
-							"path": [
-								"forecast",
-								"lookup",
-								"secret",
-								"stop"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8083/forecast/seed",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8083/forecast/seed/secret/?sleep=1&type=seconds&country=it&city=*",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8083",
-							"path": [
-								"forecast",
-								"seed",
-								"secret",
+								"{{secret}}",
 								""
 							],
 							"query": [
@@ -194,7 +131,70 @@
 								},
 								{
 									"key": "city",
-									"value": "*"
+									"value": "Rome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/lookup/secret/stop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast/lookup/{{secret}}/stop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"lookup",
+								"{{secret}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/seed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast/seed/{{secret}}/?sleep=1&type=seconds&country=it&city=Rome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"seed",
+								"{{secret}}",
+								""
+							],
+							"query": [
+								{
+									"key": "sleep",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "seconds",
+									"description": "// possible values for type: milliseconds, seconds, minutes, hours, days"
+								},
+								{
+									"key": "country",
+									"value": "it"
+								},
+								{
+									"key": "city",
+									"value": "Rome"
 								}
 							]
 						}
@@ -207,7 +207,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/forecast/seed/secret/stop",
+							"raw": "http://localhost:8083/forecast/seed/{{secret}}/stop",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -216,7 +216,7 @@
 							"path": [
 								"forecast",
 								"seed",
-								"secret",
+								"{{secret}}",
 								"stop"
 							]
 						}
@@ -258,7 +258,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/cities/load/secret",
+							"raw": "http://localhost:8083/cities/load/{{secret}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -267,7 +267,7 @@
 							"path": [
 								"cities",
 								"load",
-								"secret"
+								"{{secret}}"
 							]
 						}
 					},
@@ -279,7 +279,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8083/cities/stop/secret",
+							"raw": "http://localhost:8083/cities/stop/{{secret}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -288,7 +288,7 @@
 							"path": [
 								"cities",
 								"stop",
-								"secret"
+								"{{secret}}"
 							]
 						}
 					},
