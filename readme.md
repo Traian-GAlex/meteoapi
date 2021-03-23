@@ -54,7 +54,7 @@ Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\
 |   GET  |<http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà>|
 
 
-<span id+"home"></span>
+<span id="home"></span>
 | Metodo |        Indirizzo        |
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083> |
