@@ -103,7 +103,7 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
     }
 ]
 ```
-
+![](./uml/request_flow/get_cities.png "")
 ----
 <!-- blank line -->
 <!-- blank line -->
@@ -120,6 +120,7 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
 
 ***{{secret}}*** – è una stringa che rappresenta un UUID (universally unique identifier, cioè un identificativo unico universale). Può essere ottenuto sul sito [www.uuidgenerator.net](https://www.uuidgenerator.net/) e va impostato anche nel file **application.properties**.
 
+![](./uml/request_flow/get_cities_load.png "")
 ----
 
 <span id="cities_load_stop"></span>
@@ -165,6 +166,8 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 <font size="5">**\***</font> - l'asterisco sostituisce uno o più caratteri cominciando dalla posizione corrente.
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
+
+![](./uml/request_flow/get_forecast_seed.png "")
 
 ----
 
@@ -214,6 +217,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
 
+![](./uml/request_flow/get_forecast_autolookup.png "")
 ----
 
 <span id="forecast_lookup_stop"></span>
@@ -267,7 +271,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 <font size="5">**\***</font> - l'asterisco sostituisce uno o più caratteri cominciando dalla posizione corrente.
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
-
+![](./uml/request_flow/get_forecast.png "")
 ----
 
 <span id="forecast_statistics"></span>
@@ -320,3 +324,5 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 <font size="5">**\***</font> - l'asterisco sostituisce uno o più caratteri cominciando dalla posizione corrente.
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
+
+![](./uml/request_flow/get_forecast_statistics.png "")
