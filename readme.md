@@ -271,6 +271,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 <font size="5">**\***</font> - l'asterisco sostituisce uno o più caratteri cominciando dalla posizione corrente.
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
+
 ![](./uml/request_flow/get_forecast.png "")
 ----
 
