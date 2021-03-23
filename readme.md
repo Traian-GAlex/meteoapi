@@ -62,6 +62,7 @@ Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\
 
 - Rappresenta l'home page del micro-servizio e contiene il nome ed il numero di città presenti nel database, estratti da un elenco messo a disposizione da [openweathermap.org](https://openweathermap.org/).
 
+![](./uml/request_flow/get_home.png "")
 ----
 <span id="cities"></span>
 
