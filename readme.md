@@ -35,16 +35,31 @@ Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\
 -   deve contenere la password di accesso al database. Può essere nullo
     se non c'è una password impostato per l'utente usato.
 
-**Di seguito saranno elencati gli URL di accesso al micro-servizio con la
-loro descrizione.**
+**Di seguito saranno elencati gli URL di accesso al micro-servizio con la descrizione afferente:**
 
-|Metodo           |  Indirizzo              |
-| :-------------: |:-----------------------:|
-|GET              |<http://localhost:8083>  |
 
-> Rappresenta l'home page del micro-servizio e contiene il nome ed il
-> numero di città presenti nel database, estratti da un elenco messo a
-> disposizione da [openweathermap.org](https://openweathermap.org/).
+
+| Metodo |        Indirizzo        |
+|:------:|:-----------------------|
+|   GET  | [http://localhost:8083](#home) |
+|   GET  |<http://localhost:8083/cities?country=CodiceDelPaese&city=NomeCittà>                     |
+|   GET  |<http://localhost:8083/cities/load/{{secret}}>                    |
+|   GET  |<http://localhost:8083/cities/stop/{{secret}}>                         |
+|   GET  |<http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà>             |
+|   GET  |<http://localhost:8083/forecast/lookup/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà>                         |
+|   GET  |<http://localhost:8083/forecast/lookup/{{secret}}/stop>                        |
+|   GET  |<http://localhost:8083/forecast/seed/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà>                        |
+|   GET  |<http://localhost:8083/forecast/seed/{{secret}}/stop>                         |
+|   GET  |<http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà>                         |
+|   GET  |<http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà>|
+
+
+<span id+"home"></span>
+| Metodo |        Indirizzo        |
+|:------:|:-----------------------|
+|   GET  | <http://localhost:8083> |
+
+- Rappresenta l'home page del micro-servizio e contiene il nome ed il numero di città presenti nel database, estratti da un elenco messo a disposizione da [openweathermap.org](https://openweathermap.org/).
 
 GET: [http://localhost:8083/forecast?country=\[codice del
 paese](http://localhost:8083/forecast?country=%5bcodice%20del%20paese)[\]&city=\[nome
