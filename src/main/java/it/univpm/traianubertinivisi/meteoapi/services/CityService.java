@@ -13,16 +13,31 @@ import it.univpm.traianubertinivisi.openweather.city.JpaCityRepository;
 @Service
 public class CityService {
 	
+	/**
+	 * Repositori per gestire i dati relativi alle città
+	 * Viene caricato automaticamente da Spring Boot
+	 */
 	@Autowired
 	JpaCityRepository jpaCityRepository;
 	
+	/**
+	 * Thread necessario per il caricamento dei dati relativi alle città 
+	 * contenute nel file city.list.json
+	 */
 	private CityLoaderThread cityLoaderThread;
 	
+
+	/**
+	 * Servizio per la gestione dei dati relativi alle città
+	 * Viene caricato automaticamente da Spring Boot
+	 */
 	@Autowired
 	private CityLoader cityLoader;
 	
 	
 	/** 
+	 * Restituisce il numero delle città presenti nel database
+	 * 
 	 * @return Long
 	 */
 	public Long getCityCount() {
@@ -31,6 +46,8 @@ public class CityService {
 	
 	
 	/** 
+	 * Restituisce l’elenco delle città che sodisfano i criteri indicati nei parametri.
+	 * 
 	 * @param cityOrNull
 	 * @param country
 	 * @return List<DbCity>
@@ -48,6 +65,9 @@ public class CityService {
 		}
 	}
 	
+	/**
+	 * Avvia il caricamento automatico delle informazioni riguardanti le città dal file city.list.json nel database.
+	 */
 	public void startLoadingCities() {
 		this.cityLoaderThread = new CityLoaderThread(this.cityLoader);
 		
@@ -57,6 +77,9 @@ public class CityService {
 		
 	}
 	
+	/**
+	 * Ferma il caricamento automatico delle informazioni riguardanti le città dal file city.list.json nel database.
+	 */
 	public void stopLoadingCities() {
 		try {
 			this.cityLoaderThread.doStop();

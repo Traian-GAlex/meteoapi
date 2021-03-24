@@ -27,6 +27,7 @@ import it.univpm.traianubertinivisi.openweather.forecast.statistics.ForecastStat
 
 @Service
 public class ForecastService {
+
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -47,6 +48,8 @@ public class ForecastService {
 		
 	
 	/** 
+	 * Restituisce le previsioni (pressione e visibilità) per le città indicate nei parametri.
+	 * 
 	 * @param cityOrNull
 	 * @param country
 	 * @return List<DbForecast>
@@ -61,6 +64,10 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Restituisce le previsioni (pressione e visibilità) per le città indicate nei parametri.
+	 * Questa funzione viene appellata sia per i dati reali che per quelli fittizi nonché 
+	 * dalle chiamate via URL e del generatore automatico.
+	 * 
 	 * @param cityOrNull
 	 * @param country
 	 * @param seed
@@ -92,6 +99,9 @@ public class ForecastService {
 
 	
 	/** 
+	 * Restituisce le previsioni (pressione e visibilità) ricavate da remoto per le città indicate nei parametri.
+	 * Questa funzione viene appellata dalle chiamate via URL e del generatore automatico.
+	 * 
 	 * @param cities
 	 * @return List<DbForecast>
 	 * @throws InterruptedException
@@ -131,6 +141,8 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Genera le previsioni fittizie (pressione e visibilità) per poter testare l’applicativo in fase di sviluppo.
+	 * 
 	 * @param cities
 	 * @param seedingDate
 	 * @return List<DbForecast>
@@ -154,6 +166,8 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Fa partire il processo automatico di recupero dei dati dal sito www.openweathermap.org
+	 * 
 	 * @param cityOrNull
 	 * @param country
 	 * @param sleepInterval
@@ -168,7 +182,9 @@ public class ForecastService {
 		t.start();
 		System.out.println("Begin autolookup forecast...");
 	}
-	
+	 /**
+	  * Ferma il processo automatico di recupero dei dati dal sito www.openweathermap.org
+	  */
 	public void stopAutolookupForecastFor() {
 		try {
 			if (null != this.forecastLoaderThread) this.forecastLoaderThread.doStop();
@@ -180,6 +196,9 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Restituisce le previsioni fittizie (pressione e visibilità) per poter testare l’applicativo in fase di sviluppo.
+	 * Questa funzione viene appellata dal generatore automatico.
+	 * 
 	 * @param cityOrNull
 	 * @param country
 	 * @param sleepInterval
@@ -195,6 +214,9 @@ public class ForecastService {
 		System.out.println("Begin seeding forecasts table...");
 	}
 	
+	/**
+	 * Ferma il generatore automatico di dati fittizi.
+	 */
 	public void stopSeedingForecastFor() {
 		try {
 			if (null != this.forecastLoaderThread) this.forecastLoaderThread.doStop();
@@ -206,6 +228,8 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Salva sia i dati reali che fittizi nel database
+	 * 
 	 * @param dbForecastList
 	 */
 	public void saveDbForecastList(List<DbForecast> dbForecastList) {
@@ -216,6 +240,8 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Restituisce la lista con i dati statistici per le città indicati 
+	 * 
 	 * @param cityOrNull
 	 * @param country
 	 * @param start_date
@@ -236,6 +262,8 @@ public class ForecastService {
 	
 	
 	/** 
+	 * Restituisce la lista con i dati statistici per le città indicati dal database.
+	 * 
 	 * @param criteria
 	 * @return List<ForecastStatistics>
 	 */
