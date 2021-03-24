@@ -22,12 +22,21 @@ public class HomeRestController {
 	@Value("${meteoapi.pwd}")
 	private String pwd;
 	
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/")
 	public String home() {
 		// ha come risultato una stringa contenente il nome dell'applicativo ed il numero delle città
 		return "<h1>Meteo Api Homepage</h1> <br/> \n\r <p> There are " + this.cityService.getCityCount() + " cities in database.</p>";
 	}
 	
+	
+	/** 
+	 * @param cities(
+	 * @return List<DbCity>
+	 */
 	@GetMapping("/cities")
 	public List<DbCity> cities(
 			@RequestParam(name="city", required=false) String cityOrNull,
@@ -36,6 +45,10 @@ public class HomeRestController {
 		return this.cityService.getCityList(cityOrNull, country);
 	}
 	
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/cities/load/{pwd}")
 	public String citiesLoad(
 			@PathVariable(name = "pwd", required = true) String pwd
@@ -49,6 +62,10 @@ public class HomeRestController {
 		return "Started to load cities...";
 	}
 	
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/cities/stop/{pwd}")
 	public String citiesStopLoad(
 			@PathVariable(name = "pwd", required = true) String pwd

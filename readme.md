@@ -1,12 +1,10 @@
 # Meteo Api (meteoapi)
 
+Lo scopo del presente applicativo è quello di ottenere i valori di visibilità e pressione per le città scelte, attraverso delle chiamate all’API del servizio on-line [www.openweathermap.org](https://openweathermap.org/).
+Da una parte, i dati ottenuti dal suddetto sito sono rigirati all’utente finale sottoforma di dati JSON, dall’altra, i dati vengono immagazzinati nel database del micro-servizio, ogni tot tempo, per poter ottenere dati statistici riguardanti la visibilità e pressione per le città scelte. Anche se la richiesta del progetto prevedeva la raccolta ogni cinque ore, abbiamo scelto di implementare un metodo flessibile che include anche l’obiettivo richiesto.
+Il micro-servizio è scritto completamente col linguaggio Java, usando il framework Spring con l’ausilio di Spring Boot, quest’ultimo permettendo di accelerare il processo di sviluppo.
 
-
-L'Api rappresenta un micro-servizio che sfrutta le api presenti su [openweathermap.org](https://openweathermap.org/) per ottenere informazioni di ordine meteorologico nonché per generare delle statistiche sulla base dei dati raccolti.
-
-È stato creato sfruttando il linguaggio Java attraverso il framework Spring con l'ausilio del Spring Boot.
-
-Per la persistenza dei dati è stato utilizzato il DBMS MySQL (nella variante opensource MariaDb).
+Per la persistenza dei dati è stato utilizzato il RDBMS MySQL (nella variante opensource MariaDb).
 
 Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\resources\\application.properties** che elenchiamo di seguito:
 
@@ -20,7 +18,7 @@ Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\
 
 <font size="5">**open_weather.api_key**</font>
 
--   rappresenta la API Key fornita da [openweathermap.org](https://openweathermap.org/) per accedere ai suoi servizi. Per ottenere la suddetta chiave ci si deve iscrivere sul sito del provider di servizi.
+-   rappresenta la API Key fornita da [www.openweathermap.org](https://openweathermap.org/) per accedere ai suoi servizi. Per ottenere la suddetta chiave ci si deve iscrivere sul sito del provider di servizi.
 
 <font size="5">**spring.datasource.url**</font>
 
@@ -60,7 +58,7 @@ Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083> |
 
-- Rappresenta l'home page del micro-servizio e contiene il nome ed il numero di città presenti nel database, estratti da un elenco messo a disposizione da [openweathermap.org](https://openweathermap.org/).
+- Rappresenta l'home page del micro-servizio e contiene il nome ed il numero di città presenti nel database, estratti da un elenco messo a disposizione da [www.openweathermap.org](https://openweathermap.org/).
 
 ![](./uml/request_flow/get_home.png "")
 ----
@@ -114,7 +112,7 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083/cities/load/{{secret}}> |
 
-- Questa chiamata permette di caricare automaticamente la lista delle città messa a disposizione da [openweathermap.org](https://openweathermap.org/) nel database dell’applicazione.
+- Questa chiamata permette di caricare automaticamente la lista delle città messa a disposizione da [www.openweathermap.org](https://openweathermap.org/) nel database dell’applicazione.
 
 <font size="4">**Parametri:**</font>
 
@@ -129,7 +127,7 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083/cities/stop/{{secret}}> |
 
-- Questa chiamata ferma il caricamento automatico della lista contenete le città messa a disposizione da [openweathermap.org](https://openweathermap.org/) nel database dell’applicazione.
+- Questa chiamata ferma il caricamento automatico della lista contenete le città messa a disposizione da [www.openweathermap.org](https://openweathermap.org/) nel database dell’applicazione.
 
 <font size="4">**Parametri:**</font>
 
@@ -192,7 +190,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083/forecast/lookup/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà> |
 
-- Questo link fa partire la raccolta automatica delle previsioni meteo dal sito [openweathermap.org](https://openweathermap.org/). Assicurarsi di svuotare la tabella dei dati fittizi se risultano caricati.
+- Questo link fa partire la raccolta automatica delle previsioni meteo dal sito [www.openweathermap.org](https://openweathermap.org/). Assicurarsi di svuotare la tabella dei dati fittizi se risultano caricati.
 
 
 <font size="4">**Parametri:**</font>
@@ -226,7 +224,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083/forecast/lookup/{{secret}}/stop> |
 
-- Il presente link fa fermare la raccolta automatica delle previsioni meteo dal sito [openweathermap.org](https://openweathermap.org/).
+- Il presente link fa fermare la raccolta automatica delle previsioni meteo dal sito [www.openweathermap.org](https://openweathermap.org/).
 
 <font size="4">**Parametri:**</font>
 
@@ -240,7 +238,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà> |
 
-- Il suddetto link previsioni meteo in tempo reale dal sito [openweathermap.org](https://openweathermap.org/) per le città indicate nei parametri.
+- Il suddetto link previsioni meteo in tempo reale dal sito [www.openweathermap.org](https://openweathermap.org/) per le città indicate nei parametri.
 
 ```
 [
@@ -281,7 +279,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 |:------:|:-----------------------|
 |   GET  | <http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà> |
 
-- Mediante questo link si va a ottenere informazioni statistiche per i dati provenienti da [openweathermap.org](https://openweathermap.org/) e salvati automaticamente nel database. Il risultato è di tipo **json array**.
+- Mediante questo link si va a ottenere informazioni statistiche per i dati provenienti da [www.openweathermap.org](https://openweathermap.org/) e salvati automaticamente nel database. Il risultato è di tipo **json array**.
 
 ```
 [
