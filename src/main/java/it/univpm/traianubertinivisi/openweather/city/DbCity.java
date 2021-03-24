@@ -42,45 +42,101 @@ public class DbCity {
 		this.latitude = f.toString();
 	}
 	
+	
+	/** 
+	 * @return Integer
+	 */
 	public Integer getId() {
 		return id;
 	}
+	
+	/** 
+	 * @param id
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getCity_id() {
 		return city_id;
 	}
+	
+	/** 
+	 * @param city_id
+	 */
 	public void setCity_id(String city_id) {
 		this.city_id = city_id;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/** 
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getState() {
 		return state;
 	}
+	
+	/** 
+	 * @param state
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getCountry() {
 		return country;
 	}
+	
+	/** 
+	 * @param country
+	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getLongitude() {
 		return longitude;
 	}
+	
+	/** 
+	 * @param longitude
+	 */
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getLatitude() {
 		return latitude;
 	}
+	
+	/** 
+	 * @param latitude
+	 */
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}

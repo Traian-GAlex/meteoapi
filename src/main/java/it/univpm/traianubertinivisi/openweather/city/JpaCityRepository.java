@@ -14,6 +14,11 @@ public class JpaCityRepository implements CityRepository {
 	private EntityManager em;
 	
 	
+	
+	/** 
+	 * @param criteria
+	 * @return List<DbCity>
+	 */
 	@Override
 	public List<DbCity> findByName(String[] criteria) {
 		
@@ -67,58 +72,103 @@ public class JpaCityRepository implements CityRepository {
 	}
 
 
+	
+	/** 
+	 * @param entity
+	 * @return S
+	 */
 	@Override
 	public <S extends DbCity> S save(S entity) {
 		return null;
 	}
 
 
+	
+	/** 
+	 * @param entities
+	 * @return Iterable<S>
+	 */
 	@Override
 	public <S extends DbCity> Iterable<S> saveAll(Iterable<S> entities) {
 		return null;
 	}
 
 
+	
+	/** 
+	 * @param id
+	 * @return Optional<DbCity>
+	 */
 	@Override
 	public Optional<DbCity> findById(Integer id) {
 		return null;
 	}
 
 
+	
+	/** 
+	 * @param id
+	 * @return boolean
+	 */
 	@Override
 	public boolean existsById(Integer id) {
 		return false;
 	}
 
 
+	
+	/** 
+	 * @return Iterable<DbCity>
+	 */
 	@Override
 	public Iterable<DbCity> findAll() {
 		return null;
 	}
 
 
+	
+	/** 
+	 * @param ids
+	 * @return Iterable<DbCity>
+	 */
 	@Override
 	public Iterable<DbCity> findAllById(Iterable<Integer> ids) {
 		return null;
 	}
 
 
+	
+	/** 
+	 * @return long
+	 */
 	@Override
 	public long count() {
 		return 0;
 	}
 
 
+	
+	/** 
+	 * @param id
+	 */
 	@Override
 	public void deleteById(Integer id) {
 	}
 
 
+	
+	/** 
+	 * @param entity
+	 */
 	@Override
 	public void delete(DbCity entity) {
 	}
 
 
+	
+	/** 
+	 * @param entities
+	 */
 	@Override
 	public void deleteAll(Iterable<? extends DbCity> entities) {
 	}

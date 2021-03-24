@@ -21,10 +21,21 @@ public class CityService {
 	@Autowired
 	private CityLoader cityLoader;
 	
+	
+	/** 
+	 * @return Long
+	 */
 	public Long getCityCount() {
 		return this.cityLoader.getCityRepository().count();
 	}
 	
+	
+	/** 
+	 * @param cityOrNull
+	 * @param country
+	 * @return List<DbCity>
+	 * @throws Exception
+	 */
 	public List<DbCity> getCityList(String cityOrNull, String country) throws Exception {
 		try {
 			if(null == cityOrNull) throw new Exception("Must give at least a city name.");

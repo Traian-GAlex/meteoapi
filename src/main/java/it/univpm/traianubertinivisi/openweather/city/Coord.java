@@ -17,18 +17,34 @@ public class Coord {
 	
 	private float lat;
 
+	
+	/** 
+	 * @return float
+	 */
 	public float getLon() {
 		return lon;
 	}
 
+	
+	/** 
+	 * @param lon
+	 */
 	public void setLon(float lon) {
 		this.lon = lon;
 	}
 
+	
+	/** 
+	 * @return float
+	 */
 	public float getLat() {
 		return lat;
 	}
 
+	
+	/** 
+	 * @param lat
+	 */
 	public void setLat(float lat) {
 		this.lat = lat;
 	}

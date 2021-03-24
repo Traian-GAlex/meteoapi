@@ -19,7 +19,11 @@ public class CityLoaderThread implements Runnable {
         System.out.println("thread stopped...");
     }
 
-    private synchronized boolean keepRunning() {
+    
+	/** 
+	 * @return boolean
+	 */
+	private synchronized boolean keepRunning() {
         return this.doStop == false;
     }
 	

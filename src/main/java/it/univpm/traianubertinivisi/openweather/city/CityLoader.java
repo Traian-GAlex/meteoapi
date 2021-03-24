@@ -29,18 +29,34 @@ public class CityLoader {
 	
 
 	
+	
+	/** 
+	 * @return Resource
+	 */
 	public Resource getResourceFile() {
 		return this.resourceFile;
 	}
 	
+	
+	/** 
+	 * @param resourceFile
+	 */
 	public void setResourceFile(Resource resourceFile) {
 		this.resourceFile = resourceFile;
 	}
 	
+	
+	/** 
+	 * @return CityRepository
+	 */
 	public CityRepository getCityRepository() {
 		return this.cityRepository;
 	}
 	
+	
+	/** 
+	 * @param cityRepository
+	 */
 	public void setCityRepository(CityRepository cityRepository) {
 		this.cityRepository = cityRepository;
 	}
@@ -61,6 +77,11 @@ public class CityLoader {
 		System.out.println("Loading cities: end");
 	}
 	
+	
+	/** 
+	 * @param jsonCity
+	 * @return DbCity
+	 */
 	private DbCity CreateCity(String jsonCity) {
 		ObjectMapper mapper = new ObjectMapper();
 		TypeReference<City> typeReference = new TypeReference<City>() {}; 
@@ -77,6 +98,10 @@ public class CityLoader {
 		
 	}
 	
+	
+	/** 
+	 * @return String
+	 */
 	private String getResourceAsString() {
         try (Reader reader = new InputStreamReader(this.resourceFile.getInputStream())) {
             return FileCopyUtils.copyToString(reader);

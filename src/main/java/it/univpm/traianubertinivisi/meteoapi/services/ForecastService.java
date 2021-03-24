@@ -45,6 +45,13 @@ public class ForecastService {
 		this.forecastLookupService = forecastLookupService;
 	}
 		
+	
+	/** 
+	 * @param cityOrNull
+	 * @param country
+	 * @return List<DbForecast>
+	 * @throws Exception
+	 */
 	public List<DbForecast> getForecastFor(
 			String cityOrNull,
 			String country
@@ -52,6 +59,15 @@ public class ForecastService {
 		 return this.getForecastFor(cityOrNull, country, false, null);
 	}
 	
+	
+	/** 
+	 * @param cityOrNull
+	 * @param country
+	 * @param seed
+	 * @param seedingDate
+	 * @return List<DbForecast>
+	 * @throws Exception
+	 */
 	public List<DbForecast> getForecastFor(
 			String cityOrNull,
 			String country,
@@ -74,6 +90,13 @@ public class ForecastService {
 		}
 	}
 
+	
+	/** 
+	 * @param cities
+	 * @return List<DbForecast>
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
 	private List<DbForecast> GetForecast(List<DbCity> cities) throws InterruptedException, ExecutionException{
 		List<DbForecast> fcl = new ArrayList<DbForecast>();
 
@@ -106,6 +129,12 @@ public class ForecastService {
 		return fcl;
 	}
 	
+	
+	/** 
+	 * @param cities
+	 * @param seedingDate
+	 * @return List<DbForecast>
+	 */
 	private List<DbForecast> GetSeededForecast(List<DbCity> cities, Date seedingDate) {
 		List<DbForecast> fcl = new ArrayList<DbForecast>();
 		DbForecast fc;
@@ -123,6 +152,13 @@ public class ForecastService {
 		return fcl;
 	}
 	
+	
+	/** 
+	 * @param cityOrNull
+	 * @param country
+	 * @param sleepInterval
+	 * @param sleepIntervalType
+	 */
 	public void startAutolookupForecastFor(
 			String cityOrNull, String country, Integer sleepInterval, String sleepIntervalType
 			) {
@@ -142,6 +178,13 @@ public class ForecastService {
 		}
 	}
 	
+	
+	/** 
+	 * @param cityOrNull
+	 * @param country
+	 * @param sleepInterval
+	 * @param sleepIntervalType
+	 */
 	public void startSeedingForecastFor(
 			String cityOrNull, String country, Integer sleepInterval, String sleepIntervalType
 			) {
@@ -161,12 +204,25 @@ public class ForecastService {
 		}
 	}
 	
+	
+	/** 
+	 * @param dbForecastList
+	 */
 	public void saveDbForecastList(List<DbForecast> dbForecastList) {
 		// System.out.println(dbForecastList);
 		this.forecastAutolookupRepository.saveAll(dbForecastList);
 		System.out.println("Forecasts list successfully saved!");
 	}
 	
+	
+	/** 
+	 * @param cityOrNull
+	 * @param country
+	 * @param start_date
+	 * @param end_date
+	 * @return List<ForecastStatistics>
+	 * @throws Exception
+	 */
 	public List<ForecastStatistics> getStatisticsFor(
 			String cityOrNull,
 			String country,
@@ -178,6 +234,11 @@ public class ForecastService {
 		return this.generate(criteria);
 	}
 	
+	
+	/** 
+	 * @param criteria
+	 * @return List<ForecastStatistics>
+	 */
 	private List<ForecastStatistics> generate(String[] criteria) {
 		// String[] criteria = {cityOrNull, country, start_date, end_date};
 		String cityOrNull = criteria[0];

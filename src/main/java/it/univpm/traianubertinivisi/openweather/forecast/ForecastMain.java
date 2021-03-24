@@ -15,10 +15,18 @@ public class ForecastMain {
 	
 	Integer pressure;
 
+	
+	/** 
+	 * @return Integer
+	 */
 	public Integer getPressure() {
 		return pressure;
 	}
 
+	
+	/** 
+	 * @param pressure
+	 */
 	public void setPressure(Integer pressure) {
 		this.pressure = pressure;
 	}

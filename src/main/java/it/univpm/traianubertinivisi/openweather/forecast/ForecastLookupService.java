@@ -26,6 +26,12 @@ public class ForecastLookupService {
 	    this.restTemplate = restTemplateBuilder.build();
 	  }
 	  
+	  
+	  /** 
+	   * @param city
+	   * @return CompletableFuture<Forecast>
+	   * @throws InterruptedException
+	   */
 	  @Async
 	  public CompletableFuture<Forecast> getForecastForCity(DbCity city) throws InterruptedException {
 		String url = String.format("https://api.openweathermap.org/data/2.5/weather?id=%s&units=metric&appid=%s", city.getCity_id(), this.apiKey);

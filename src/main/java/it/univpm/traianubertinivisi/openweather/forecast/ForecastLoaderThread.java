@@ -59,7 +59,11 @@ public class ForecastLoaderThread implements Runnable{
         System.out.println("thread stopped...");
     }
 
-    private synchronized boolean keepRunning() {
+    
+	/** 
+	 * @return boolean
+	 */
+	private synchronized boolean keepRunning() {
         return this.doStop == false;
     }
 	
@@ -99,30 +103,59 @@ public class ForecastLoaderThread implements Runnable{
 		
 	}
 	
+	
+	/** 
+	 * @return int
+	 */
 	public int getTimeToSleep() {
 		return this.timeToSleep;
 	}
 	
+	
+	/** 
+	 * @param milliseconds
+	 * @return int
+	 */
 	public int setSleepMilliseconds(int milliseconds) {
 		this.timeToSleep =  milliseconds;
 		return this.timeToSleep;
 	}
 	
+	
+	/** 
+	 * @param seconds
+	 * @return int
+	 */
 	public int setSleepSeconds(int seconds) {
 		this.timeToSleep =  seconds * this.setSleepMilliseconds(1000);
 		return this.timeToSleep;
 	}
 	
+	
+	/** 
+	 * @param minutes
+	 * @return int
+	 */
 	public int setSleepMinutes(int minutes) {
 		this.timeToSleep =  minutes * this.setSleepSeconds(60);
 		return this.timeToSleep;
 	}
 	
+	
+	/** 
+	 * @param hours
+	 * @return int
+	 */
 	public int setSleepHours(int hours) {
 		this.timeToSleep =  hours * this.setSleepMinutes(60);
 		return this.timeToSleep;
 	}
 	
+	
+	/** 
+	 * @param days
+	 * @return int
+	 */
 	public int setSleepDays(int days) {
 		this.timeToSleep =  days * this.setSleepHours(24);
 		return this.timeToSleep;

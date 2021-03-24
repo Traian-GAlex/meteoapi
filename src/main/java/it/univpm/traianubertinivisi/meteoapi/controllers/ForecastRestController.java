@@ -28,6 +28,11 @@ public class ForecastRestController {
 	@Autowired
 	ForecastService forecastService; 
 	
+	
+	/** 
+	 * @return List<DbForecast>
+	 * @throws Exception
+	 */
 	@GetMapping("")
 	// è identico al /forecast
 	public List<DbForecast> getForecastFor(
@@ -40,6 +45,10 @@ public class ForecastRestController {
 		return this.forecastService.getForecastFor(cityOrNull, country);
 	}
 
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/lookup/{pwd}")
 	public String startForecastAutoLookup(
 			@PathVariable(name = "pwd", required = true) String pwd,
@@ -73,6 +82,10 @@ public class ForecastRestController {
 	}
 	
 	
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/lookup/{pwd}/stop")
 	public String stopForecastAutoLookup(
 			@PathVariable(name = "pwd", required = true) String pwd
@@ -84,6 +97,10 @@ public class ForecastRestController {
 	}
 	
 	
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/seed/{pwd}")
 	public String startForecastSeeding(
 			@PathVariable(name = "pwd", required = true) String pwd,
@@ -105,6 +122,10 @@ public class ForecastRestController {
 		return "Forecast seeding started...";
 	}
 	
+	
+	/** 
+	 * @return String
+	 */
 	@GetMapping("/seed/{pwd}/stop")
 	public String stopForecastSeeding(
 			@PathVariable(name = "pwd", required = true) String pwd
@@ -115,6 +136,11 @@ public class ForecastRestController {
 		return "Forecast seeding stopped...";
 	}
 	
+	
+	/** 
+	 * @return List<ForecastStatistics>
+	 * @throws Exception
+	 */
 	@GetMapping("/statistics")
 	public List<ForecastStatistics> getStatisticsFor(
 			@RequestParam(name="city", required=false) String cityOrNull,
@@ -135,6 +161,11 @@ public class ForecastRestController {
 		return this.forecastService.getStatisticsFor(cityOrNull, country,start_date, end_date);
 	}
 
+	
+	/** 
+	 * @param timeSpan
+	 * @return String
+	 */
 	private String GetNowString(String timeSpan) {
 		DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
         return formatter.format(new Date()) + (timeSpan.equals("start") ? " 00:00:00":" 23:59:59");

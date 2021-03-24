@@ -26,37 +26,81 @@ public class City {
 	private Coord coord;
 	
 	
+	
+	/** 
+	 * @return Integer
+	 */
 	public Integer getId() {
 		return id;
 	}
+	
+	/** 
+	 * @param id
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/** 
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getState() {
 		return state;
 	}
+	
+	/** 
+	 * @param state
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+	/** 
+	 * @return String
+	 */
 	public String getCountry() {
 		return country;
 	}
+	
+	/** 
+	 * @param country
+	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	/** 
+	 * @return Coord
+	 */
 	public Coord getCoord() {
 		return coord;
 	}
+	
+	/** 
+	 * @param coord
+	 */
 	public void setCoord(Coord coord) {
 		this.coord = coord;
 	}
 	
+	
+	/** 
+	 * @return String
+	 */
 	public String toString() {
 		return "" + this.name;
 	}
