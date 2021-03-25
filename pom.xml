@@ -15,6 +15,7 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,7 +77,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<executions>
@@ -94,8 +95,32 @@
 						<additionalOption>-Xdoclint:none</additionalOption>
 					</additionalOptions>
 				</configuration>
-			</plugin>
+			</plugin> -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<doclint>none</doclint>
+					<failOnError>none</failOnError>
+					<sourcepath>src/main/java</sourcepath>
+					<javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+					<additionalOptions>
+						<additionalOption>-Xdoclint:none</additionalOption>
+					</additionalOptions>
+					<module name="Checker">
+						<module name="TreeWalker">
+						  <module name="JavadocMethod">
+							<property name="allowedAnnotations" value="Override, Test, Before, BeforeClass, Autowired, Value, Service, RestTemplate, Service, Embeded, Entity, Id, Table, Data,  AllArgsConstructor, Embedable, JsonIgnoreProperties, PathVariable, GetMapping, RequestMapping, RequestParam, RestController, EntityManader"/>
+						  </module>
+						</module>
+					</module>
+				</configuration>
+				
+			  </plugin>
 		</plugins>
+		
 	</build>
 
 </project>
