@@ -325,3 +325,15 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
 
 ![](./uml/request_flow/get_forecast_statistics.png "")
+
+
+- Qui di seguito è rappresentato l’UML class diagram dove sono state inserite tutte le classi del progetto e le rispettive relazioni tra esse come ad esempio: 
+    -	<< use >>
+    -	“extends”
+    -	“Implements”
+    -	“Aggregation”
+    -	“Composition”
+
+[Scarica qui l'UML del progetto in formto pdf](./uml/UML_progetto.pdf)
+
+![](./uml/UML_progetto.png "")
