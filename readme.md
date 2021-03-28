@@ -334,6 +334,6 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
     -	“Aggregation”
     -	“Composition”
 
-[Scarica qui l'UML del progetto in formto pdf](./uml/UML_progetto.png)
+[Scarica qui l'UML del progetto in formto pdf](./uml/UML_progetto.pdf)
 
 ![](./uml/UML_progetto.png "")
