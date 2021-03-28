@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import it.univpm.traianubertinivisi.meteoapi.controllers.HomeRestController;
-import it.univpm.traianubertinivisi.openweather.city.City;
+import it.univpm.traianubertinivisi.meteoapi.services.*;
+import it.univpm.traianubertinivisi.openweather.city.*;
 
 @SpringBootTest
 class MeteoapiApplicationTests {
@@ -14,6 +15,8 @@ class MeteoapiApplicationTests {
 	@Autowired
 	HomeRestController homeRestController;
 	
+	@Autowired
+	CityService cityService;
 	
 	@Test
 	void nameTest (){
@@ -30,10 +33,6 @@ class MeteoapiApplicationTests {
 	@Test
 	void citiesLoadTest() {
 		assertTrue(this.homeRestController.citiesLoad("00980018-f515-4390-9961-d865c629bcf9") instanceof String);
-	}
-
-	@Test
-	void citiesStopLoadTest() {
 		assertTrue(this.homeRestController.citiesStopLoad("00980018-f515-4390-9961-d865c629bcf9") instanceof String);
 	}
 
